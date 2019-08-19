@@ -27,14 +27,6 @@ function insertRecord(req, res) {
         if (!err)
             res.redirect('product/list');
         else {
-        //     if (err.name == 'ValidationError') {
-        //         handleValidationError(err, req.body);
-        //         res.render("product/addOrEdit", {
-        //             viewTitle: "Insert product",
-        //             product: req.body
-        //         });
-        //     }
-        //     else
                 console.log('Error during record insertion : ' + err);
         }
     });
@@ -70,22 +62,6 @@ router.get('/list', (req, res) => {
         }
     });
 });
-
-
-// function handleValidationError(err, body) {
-//     for (field in err.errors) {
-//         switch (err.errors[field].path) {
-//             case 'productName':
-//                 body['productNameError'] = err.errors[field].message;
-//                 break;
-//             case 'prouctID':
-//                 body['prouctIDError'] = err.errors[field].message;
-//                 break;
-//             default:
-//                 break;
-//         }
-//     }
-// }
 
 router.get('/:id', (req, res) => {
     product.findById(req.params.id, (err, doc) => {
