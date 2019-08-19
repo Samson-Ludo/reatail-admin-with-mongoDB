@@ -1,0 +1,26 @@
+<h3><a class="btn btn-secondary" href="/product"><i class="fa fa-plus"></i> Create New</a> Product List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Procut Name</th>
+            <th>ProductID</th>
+            <th>Price</th>
+            <th>Current Stock</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.productName}}</td>
+            <td>{{this.productID}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.currentStock}}</td>
+            <td>
+                <a href="/product/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/product/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
